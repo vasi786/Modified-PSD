@@ -1,0 +1,2 @@
+g++ solvopt.cpp psd.cpp -o psd -O3
+

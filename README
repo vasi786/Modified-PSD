@@ -1,0 +1,66 @@
+******************* PSDsolv v.1.0 **********************
+
+Author of psd.cpp: Supriyo Bhattacharya
+solvopt.cpp and solvopt.h were included upon permission
+from Prof. Franz Kappel. ran_nr.cpp is taken from 
+"Numerical Recipes in C++"
+
+Feel free to modify / distribute the original code for
+nonprofit / academic purposes. I give permission for 
+commercial use of my own code, however solvopt is 
+forbidden from being used commercially. Therefore 
+commercial users can use the code as long as they 
+provide their own nonlinear optimization routine and
+give proper credits to the author and cite the reference 
+given at the end of this document. Also, commercial
+establishments may not prohibit others from modifying
+/ distributing the original codes either for nonprofit 
+or for commercial purposes.
+
+GENERAL DESCRIPTION
+
+This program calculates the pore size distribution
+from a structure file. The program does not need the
+connect records, only the locations and atom types,
+so the xyz format is the simplest to work with. If 
+your structure is in a pdb or mol2 format, use babel 
+to convert: i.e. openbabel -ipdb struc.pdb -oxyz struc.xyz
+The atoms are modeled as hard spheres (vdW radii).
+The program uses a nonlinear optimization routine (SOLVOPT)
+
+INSTALL
+
+Run the install script (./install)
+Then place the executable (psd) somewhere in your path or 
+create a link in /usr/local/bin. 
+Place radii_list.dat in the same directory where you run 
+the program. This file  contains the vdW radii of the 
+common atom types used by the program. New user defined 
+atom types can be added to radii_list.dat.
+
+RUN
+
+psd <xyz file> <test particle radius (A)> <histogram bin width (A)>
+A bin width of 0.25A seems to be the optimum.  The output produces
+three files: psd_diff.dat (the actual distribution), psd_cumm.dat
+(cummulative PSD, see paper for explanation) and error.dat (shows 
+the average error over time / MC steps).
+
+Once you start the program, a rough profile can be seen within an hour. 
+However, it may take upto 24 hours to get a smooth profile 
+(depending on the system size). Please continue to monitor the 
+distribution and the estimated error. Once you are satisfied with the results,
+just kill the process, simple!!
+
+OTHER INFO
+
+Please cite the following:
+psd calculation:
+S. Bhattacharya and K. E. Gubbins, fast Method for Computing
+Pore Size Distributions of Model Materials, Langmuir 2006, 22, 7726.
+
+solvopt:
+F. Kappel and A. V. Kuntsevich, Comput. Optim. Appl. 2000, 15, 193.
+
+Send all comments to sup27606@yahoo.com
+
