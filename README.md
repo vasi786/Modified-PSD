@@ -5,7 +5,7 @@ This is just an extension of the original code (link given below) developed by S
 
 His personal webpage :  https://supriyob.wordpress.com/about/research/
 
-And the papers where they described the calculations
+And the papers where the calculations are described
 
 https://pubs.acs.org/doi/abs/10.1021/la052651k
 
